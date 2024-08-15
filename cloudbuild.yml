@@ -1,5 +1,0 @@
-steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'europe-west2-docker.pkg.dev/ai-project-cb9fe/cloud-run-source-deploy/fork-cracker/fork-cracker:$COMMIT_SHA', '-f', 'Dockerfile', '.']
-images:
-  - 'europe-west2-docker.pkg.dev/ai-project-cb9fe/cloud-run-source-deploy/fork-cracker/fork-cracker:$COMMIT_SHA'
