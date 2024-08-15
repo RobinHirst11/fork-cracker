@@ -1,13 +1,7 @@
-FROM rust:latest as builder
+FROM rust:latest
 
 WORKDIR /app
 
 COPY . .
 
-RUN cargo build --release
-
-FROM alpine:latest
-
-COPY --from=builder /app/target/release/fork-cracker /app/fork-cracker
-
-CMD ["/app/fork-cracker"]
+CMD ["cargo", "run"]
