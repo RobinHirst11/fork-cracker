@@ -2,7 +2,8 @@ FROM rust:latest as builder
 
 WORKDIR /app
 
-COPY Cargo.toml ./
+COPY . .
+
 RUN cargo build --release
 
 FROM alpine:latest
