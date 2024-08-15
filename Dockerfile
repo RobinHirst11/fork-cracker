@@ -1,26 +1,13 @@
-FROM rust:1.67.0-slim-buster
+FROM golang:1.19 AS builder
 
 WORKDIR /app
 
 COPY . .
 
-RUN apt update && \
-    apt install -y --no-install-recommends \
-    curl \
-    libcurl4-openssl-dev \
-    openssl \
-    libssl-dev \
-    libncurses5-dev \
-    libgtk2.0-dev \
-    libglib2.0-dev \
-    libreadline-dev \
-    libz-dev \
-    libffi-dev \
-    pkg-config \
-    git \
-    vim \
-    && rm -rf /var/lib/apt/lists/*
+RUN go build -o fork-cracker
 
-RUN cargo build --release
+FROM alpine:latest
 
-CMD ["/app/target/release/main"]
+COPY --from=builder /app/fork-cracker /app/fork-cracker
+
+CMD ["/app/fork-cracker"]
