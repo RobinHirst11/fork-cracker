@@ -65,4 +65,4 @@ We welcome contributions! Please submit pull requests for bug fixes, feature enh
 
 ### License:
 
-This project is licensed under the [HPOG](LICENSE) license.
+This project is licensed under the [Poblic](LICENSE) license.
